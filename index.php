@@ -1,3 +1,3 @@
 <?php
 
-include("./Config/defaults.php");
+include("./Config/paths.php");

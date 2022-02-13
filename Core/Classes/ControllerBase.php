@@ -14,16 +14,11 @@ class ControllerBase {
                 throw new Exception( 'O arquivo especificado não existe' );
             }
 
-            include($footerFile);
+            include_once($footerFile);
         } catch( Exception $ex ) {
             echo "<h1>Erro ao carregar view $viewFile</h1>";
             echo "<p>$ex->getMessage()</p>";
             exit();
         }
-    }
-
-
-    private function Layout($layout) {
-        
     }
 }

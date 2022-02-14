@@ -2,6 +2,7 @@
 
 $controller = 'Home';
 $method = 'Index';
+$parameters = [];
 
 if ( isset( $_GET[ 'a' ] )  && !empty( $_GET[ 'a' ] ) ) {
     $url = explode( '/', $_GET[ 'a' ] );
@@ -9,6 +10,12 @@ if ( isset( $_GET[ 'a' ] )  && !empty( $_GET[ 'a' ] ) ) {
 
     if ( isset( $url[ 1 ] ) ) {
         $method = ucwords( $url[ 1 ] );
+    }
+
+    if ( sizeof( $url ) > 2 ) {
+        for ( $i = 2; $i < sizeof($url); $i++ ) {
+            array_push($parameters, $url[$i]);
+        }
     }
 }
 
@@ -21,7 +28,10 @@ try {
     if ( file_exists( $controllerPath ) ) {
         require_once( $controllerPath );
         $Controller = new $controller();
-        $Controller->teste();
+
+        if ( method_exists( $controller, $method ) ) {
+
+        }
     } else {
         throw new Exception( "O controller $controller não existe." );
         exit();

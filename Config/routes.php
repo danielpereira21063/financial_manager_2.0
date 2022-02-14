@@ -27,10 +27,12 @@ try {
 
     if ( file_exists( $controllerPath ) ) {
         require_once( $controllerPath );
-        $Controller = new $controller();
+        $controller = new $controller();
 
         if ( method_exists( $controller, $method ) ) {
-
+            call_user_func_array(array($controller, $method), $parameters);
+        } else {
+            throw new Exception("O método $method não existe");
         }
     } else {
         throw new Exception( "O controller $controller não existe." );

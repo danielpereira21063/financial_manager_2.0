@@ -6,7 +6,7 @@ Class HomeController extends ControllerBase {
 
     }
 
-    public function teste() {
-        echo "Chamando controller, método teste";
+    public function teste($test = "não chegou nada aqui") {
+        echo $test;
     }
 }

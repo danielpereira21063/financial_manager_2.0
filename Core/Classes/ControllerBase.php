@@ -1,10 +1,10 @@
 <?php
 
 class ControllerBase {
-    protected function View( string $viewPath ) {
-        $viewFile = APP . "/Views/$viewPath" ;
+    protected function View( string $view ) {
+        $viewFile = APP . '/Views/'. $view . '.php';
         $headerFile = APP . "/Views/Layouts/header.php";
-        $footerFile = APP . "/View/Layouts/footer.php";
+        $footerFile = APP . "/Views/Layouts/footer.php";
         try {
             include_once( $headerFile );
 

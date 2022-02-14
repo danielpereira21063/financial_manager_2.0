@@ -32,10 +32,10 @@ try {
         if ( method_exists( $controller, $method ) ) {
             call_user_func_array(array($controller, $method), $parameters);
         } else {
-            throw new Exception("O método $method não existe");
+            throw new Exception("O método $method não existe"); //retornar uma página 404
         }
     } else {
-        throw new Exception( "O controller $controller não existe." );
+        throw new Exception( "O controller $controller não existe." ); //retornar uma página 404
         exit();
     }
 

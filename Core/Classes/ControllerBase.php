@@ -1,21 +1,22 @@
 <?php
 
-class ControllerBase {
-    protected function View( string $view ) {
-        $viewFile = APP . '/Views/'. $view . '.php';
-        $headerFile = APP . "/Views/Layouts/header.php";
-        $footerFile = APP . "/Views/Layouts/footer.php";
-        try {
-            include_once( $headerFile );
+class ControllerBase
+{
+    protected function View(string $view)
+    {
+        $viewFile = APP . '/Views/' . $view . '.php';
 
-            if ( file_exists( $viewFile ) ) {
-                include_once( $viewFile );
+        try {
+            include_once(APP . "/Views/Layouts/header.php"); //header file
+
+            if (file_exists($viewFile)) {
+                include_once($viewFile);
             } else {
-                throw new Exception( 'O arquivo especificado não existe' );
+                throw new Exception("O arquivo de view $view não existe");
             }
 
-            include_once($footerFile);
-        } catch( Exception $ex ) {
+            include_once(APP . "/Views/Layouts/footer.php"); //footer file
+        } catch (Exception $ex) {
             echo "<h1>Erro ao carregar view $viewFile</h1>";
             echo "<p>$ex->getMessage()</p>";
             exit();

@@ -1,7 +1,11 @@
 <?php
 
-define('HOSTNAME', '127.0.0.1');
-define('DATABASE', 'gestor_financeiro_homol');
-define('USERNAME', 'root');
-define('PASSWORD', '');
-define('PORT', 3306);
+$dbConfig = json_decode(file_get_contents(ROOTPATH . '/config/settings.json'))->database;
+
+var_dump($dbConfig);
+
+define('HOSTNAME', $dbConfig->hostname);
+define('DBNAME', $dbConfig->dbname);
+define('USERNAME', $dbConfig->username);
+define('PASSWORD', $dbConfig->password);
+define('PORT', $dbConfig->port);

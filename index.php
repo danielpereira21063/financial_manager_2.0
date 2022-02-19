@@ -9,5 +9,5 @@ require_once('./config/database.php');
 require_once('./core/database/DBContext.php');
 require_once('./config/routes.php');
 
-$context = new DBContext();
-var_dump($context);
+// $context = new DBContext();
+// $context->query("Select * from movimentos", []);

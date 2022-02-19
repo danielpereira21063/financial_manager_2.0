@@ -2,9 +2,9 @@
 
     "database": {
         "hostname": "127.0.0.1",
-        "dbname": "database_name",
-        "username": "user_name",
-        "password": "password",
+        "dbname": "gestor_financeiro_homol",
+        "username": "root",
+        "password": "",
         "port": 3306
     }
 }
